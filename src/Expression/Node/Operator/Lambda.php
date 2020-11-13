@@ -5,8 +5,8 @@ namespace Flat3\Lodata\Expression\Node\Operator;
 use Flat3\Lodata\Exception\Internal\NodeHandledException;
 use Flat3\Lodata\Expression\Event\EndGroup;
 use Flat3\Lodata\Expression\Event\StartGroup;
-use Flat3\Lodata\Expression\Node\Literal\LambdaArgument;
-use Flat3\Lodata\Expression\Node\Literal\NavigationPropertyPath;
+use Flat3\Lodata\Expression\Node\Lambda\Argument;
+use Flat3\Lodata\Expression\Node\NavigationPropertyPath;
 use Flat3\Lodata\Expression\Operator;
 
 /**
@@ -21,6 +21,11 @@ abstract class Lambda extends Operator
 
     protected $lambdaArgument;
 
+    public function getNavigationPath(): ?NavigationPropertyPath
+    {
+        return $this->navigationPath;
+    }
+
     public function setNavigationPath(NavigationPropertyPath $path): self
     {
         $this->navigationPath = $path;
@@ -28,7 +33,12 @@ abstract class Lambda extends Operator
         return $this;
     }
 
-    public function setLambdaArgument(LambdaArgument $argument): self
+    public function getLambdaArgument(): ?Argument
+    {
+        return $this->lambdaArgument;
+    }
+
+    public function setLambdaArgument(Argument $argument): self
     {
         $this->lambdaArgument = $argument;
 

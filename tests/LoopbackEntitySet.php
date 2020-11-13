@@ -3,15 +3,18 @@
 namespace Flat3\Lodata\Tests;
 
 use Flat3\Lodata\EntitySet;
+use Flat3\Lodata\Exception\Internal\NodeHandledException;
 use Flat3\Lodata\Expression\Event;
 use Flat3\Lodata\Expression\Event\ArgumentSeparator;
 use Flat3\Lodata\Expression\Event\DeclaredPropertyEvent;
 use Flat3\Lodata\Expression\Event\EndFunction;
 use Flat3\Lodata\Expression\Event\EndGroup;
+use Flat3\Lodata\Expression\Event\Lambda;
 use Flat3\Lodata\Expression\Event\Literal;
 use Flat3\Lodata\Expression\Event\Operator;
 use Flat3\Lodata\Expression\Event\StartFunction;
 use Flat3\Lodata\Expression\Event\StartGroup;
+use Flat3\Lodata\Expression\Node\Lambda\Property;
 use Flat3\Lodata\Expression\Node\Literal\Boolean;
 use Flat3\Lodata\Expression\Node\Literal\Date;
 use Flat3\Lodata\Expression\Node\Literal\DateTimeOffset;
@@ -22,6 +25,7 @@ use Flat3\Lodata\Expression\Node\Literal\TimeOfDay;
 use Flat3\Lodata\Expression\Node\Operator\Comparison\And_;
 use Flat3\Lodata\Expression\Node\Operator\Comparison\Not_;
 use Flat3\Lodata\Expression\Node\Operator\Comparison\Or_;
+use Flat3\Lodata\Expression\Node\Operator\Lambda as LambdaOperator;
 use Flat3\Lodata\Interfaces\EntitySet\FilterInterface;
 use Flat3\Lodata\Interfaces\EntitySet\SearchInterface;
 
@@ -133,6 +137,21 @@ class LoopbackEntitySet extends EntitySet implements SearchInterface, FilterInte
 
                 return true;
 
+            case $event instanceof Lambda:
+                $node = $event->getNode();
+
+                switch (true) {
+                    case $node instanceof Property:
+                        $this->addFilter(sprintf(
+                            '%s/%s',
+                            $node->getArgument(),
+                            $node->getProperty()
+                        ));
+                        return true;
+                }
+
+                return true;
+
             case $event instanceof DeclaredPropertyEvent:
                 $this->addFilter($event->getValue());
 
@@ -141,7 +160,27 @@ class LoopbackEntitySet extends EntitySet implements SearchInterface, FilterInte
             case $event instanceof Operator:
                 $operator = $event->getNode();
 
-                $this->addFilter($operator::symbol);
+                switch (true) {
+                    case $operator instanceof LambdaOperator:
+                        list ($lambdaArgument) = $operator->getArguments();
+
+                        $this->addFilter(
+                            sprintf(
+                                '%s/%s(%s:',
+                                $operator->getNavigationPath()->getValue(),
+                                $operator::symbol,
+                                $operator->getLambdaArgument()
+                            )
+                        );
+                        $lambdaArgument->compute();
+                        $this->addFilter(')');
+
+                        throw new NodeHandledException();
+
+                    default:
+                        $this->addFilter($operator::symbol);
+                        break;
+                }
 
                 return true;
 

@@ -178,8 +178,10 @@ abstract class Node
                 );
 
             default:
-                throw new NotImplementedException('unsupported_expression',
-                    'This entity set does not support the provided expression');
+                throw new NotImplementedException(
+                    'unsupported_expression',
+                    'This entity set does not support the provided expression'
+                );
         }
     }
 }

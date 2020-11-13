@@ -1,8 +1,7 @@
 <?php
 
-namespace Flat3\Lodata\Expression\Node\Literal;
+namespace Flat3\Lodata\Expression\Node;
 
-use Flat3\Lodata\Expression\Node\Literal;
 use Flat3\Lodata\NavigationProperty;
 
 /**

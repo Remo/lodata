@@ -10,6 +10,7 @@ use Flat3\Lodata\EntityType;
 use Flat3\Lodata\Exception\Internal\ParserException;
 use Flat3\Lodata\Exception\Protocol\NotImplementedException;
 use Flat3\Lodata\Expression\Parser\Filter;
+use Flat3\Lodata\NavigationProperty;
 use Flat3\Lodata\Tests\LoopbackEntitySet;
 use Flat3\Lodata\Tests\TestCase;
 use Flat3\Lodata\Type;
@@ -431,18 +432,34 @@ class FilterTest extends TestCase
         $this->assertResult("startswith(title,'a')");
     }
 
+    public function test_53()
+    {
+        $this->assertResult("Items/any(d:d/title gt 100)");
+    }
+
+    public function test_54()
+    {
+        $this->assertResult("54 gt 12 and Items/any(d:d/title gt 100 and d/title lt 100 or id eq 4)");
+    }
+
     public function assertLoopbackSet($input)
     {
         $type = new class('test') extends EntityType {
         };
         $k = new DeclaredProperty('id', Type::int32());
         $type->setKey($k);
+        $type->addProperty(new DeclaredProperty('title', Type::string()));
+        $type->addProperty(
+            new NavigationProperty(
+                'Items',
+                (new EntityType('destination'))
+                    ->setKey(new DeclaredProperty('id', Type::int32()))
+            )
+        );
         $transaction = new Transaction();
         $entitySet = new LoopbackEntitySet('test', $type);
 
         $parser = new Filter($entitySet, $transaction);
-        $parser->addValidLiteral('id');
-        $parser->addValidLiteral('title');
 
         try {
             $tree = $parser->generateTree($input);
@@ -506,12 +523,23 @@ class FilterTest extends TestCase
     {
         $entityType = new class('test') extends EntityType {
         };
+
         $id = new DeclaredProperty('id', Type::int32());
         $id->setFilterable(true);
         $entityType->setKey($id);
+
         $title = new DeclaredProperty('title', Type::string());
         $title->setFilterable(true);
         $entityType->addProperty($title);
+
+        $entityType->addProperty(
+            new NavigationProperty(
+                'Items',
+                (new EntityType('destination'))
+                    ->setKey(new DeclaredProperty('id', Type::int32()))
+            )
+        );
+
         return $entityType;
     }
 

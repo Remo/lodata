@@ -78,6 +78,10 @@ class Filter extends Parser
 
         // Conditional OR
         Node\Operator\Comparison\Or_::class,
+
+        // Lambda
+        Node\Operator\Lambda\Any::class,
+        Node\Operator\Lambda\All::class,
     ];
 
     /**
@@ -140,20 +144,24 @@ class Filter extends Parser
             $this->tokenizeLeftParen() ||
             $this->tokenizeRightParen() ||
             $this->tokenizeComma() ||
-            $this->tokenizeParameterAlias($this->transaction) ||
-            $this->tokenizeKeyword() ||
+            $this->tokenizeParameterAlias() ||
+            $this->tokenizeLambdaArgument() ||
+            $this->tokenizeLambdaProperty() ||
+            $this->tokenizeNavigationPropertyPath() ||
+            $this->tokenizeDeclaredProperty() ||
             $this->tokenizeOperator() ||
             $this->findLiteral();
     }
 
     /**
      * Tokenize a parameter alias
-     * @param  Transaction  $transaction  Transaction
      * @return bool
      */
-    public function tokenizeParameterAlias(Transaction $transaction): bool
+    public function tokenizeParameterAlias(): bool
     {
         $token = $this->lexer->maybeParameterAlias();
+
+        $transaction = $this->transaction;
 
         if (!$token) {
             return false;

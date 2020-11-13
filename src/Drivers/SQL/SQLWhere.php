@@ -42,14 +42,6 @@ trait SQLWhere
             $filter = $this->getFilter();
             if ($filter->hasValue()) {
                 $this->whereMaybeAnd();
-                $validLiterals = [];
-
-                /** @var DeclaredProperty $property */
-                foreach ($this->getType()->getDeclaredProperties() as $property) {
-                    if ($property->isFilterable()) {
-                        $validLiterals[] = (string) $property->getName();
-                    }
-                }
 
                 $this->applyFilterQueryOption($validLiterals);
             }

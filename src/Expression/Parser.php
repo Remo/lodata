@@ -5,11 +5,13 @@ namespace Flat3\Lodata\Expression;
 use Flat3\Lodata\EntitySet;
 use Flat3\Lodata\Exception\Internal\ParserException;
 use Flat3\Lodata\Exception\Protocol\BadRequestException;
-use Flat3\Lodata\Expression\Node\Field;
+use Flat3\Lodata\Expression\Node\DeclaredProperty;
 use Flat3\Lodata\Expression\Node\Func;
 use Flat3\Lodata\Expression\Node\Group;
 use Flat3\Lodata\Expression\Node\LeftParen;
 use Flat3\Lodata\Expression\Node\Literal;
+use Flat3\Lodata\Expression\Node\Literal\LambdaProperty;
+use Flat3\Lodata\Expression\Node\Operator\Lambda;
 use Flat3\Lodata\Expression\Node\Operator\Logical;
 use Flat3\Lodata\Expression\Node\RightParen;
 
@@ -42,13 +44,6 @@ abstract class Parser
     protected $entitySet;
 
     /**
-     * The list of valid literal strings that can be captured by this parser
-     * @var string[] $validLiterals
-     * @internal
-     */
-    private $validLiterals = [];
-
-    /**
      * The operator stack
      * @var Operator[] $operatorStack
      * @internal
@@ -72,18 +67,6 @@ abstract class Parser
     public function __construct(EntitySet $entitySet)
     {
         $this->entitySet = $entitySet;
-    }
-
-    /**
-     * Set the list of valid field literals
-     * @param  string  $literal
-     * @return self
-     */
-    public function addValidLiteral(string $literal): self
-    {
-        $this->validLiterals[] = $literal;
-
-        return $this;
     }
 
     /**
@@ -139,6 +122,26 @@ abstract class Parser
             return;
         }
 
+        if ($operator instanceof Lambda) {
+            $lambdaArgument = array_pop($this->operandStack);
+            $navigationProperty = array_pop($this->operandStack);
+
+            if (!$navigationProperty instanceof Literal\NavigationPropertyPath) {
+                throw new ParserException('Lambda function was not prepended by a navigation property path');
+            }
+
+            if (!$lambdaArgument instanceof Literal\LambdaArgument) {
+                throw new ParserException('Lambda function had no valid argument');
+            }
+
+            $operator->setLambdaArgument($lambdaArgument);
+            $operator->setNavigationPath($navigationProperty);
+
+            $this->operandStack[] = $operator;
+
+            return;
+        }
+
         if ($operator::isUnary()) {
             $operand = array_pop($this->operandStack);
 
@@ -187,7 +190,7 @@ abstract class Parser
         $this->tokens[] = $token;
 
         $lastToken = $this->getLastToken();
-        if ($lastToken instanceof Func || $lastToken instanceof Logical\In) {
+        if ($lastToken instanceof Func || $lastToken instanceof Logical\In || $lastToken instanceof Lambda) {
             $token->setFunc($lastToken);
         }
 
@@ -530,18 +533,109 @@ abstract class Parser
     }
 
     /**
-     * Tokenize a registered literal keyword
+     * Tokenize a navigation property path
      * @return bool
      */
-    public function tokenizeKeyword(): bool
+    public function tokenizeNavigationPropertyPath(): bool
     {
-        $token = $this->lexer->maybeKeyword(...$this->validLiterals);
+        $navigationProperties = $this->entitySet->getType()->getNavigationProperties();
+
+        $token = $this->lexer->maybeKeyword(...$navigationProperties->keys());
 
         if (!$token) {
             return false;
         }
 
-        $operand = new Field($this);
+        $this->lexer->char('/');
+
+        $operand = new Literal\NavigationPropertyPath($this);
+        $operand->setNavigationProperty($navigationProperties[$token]);
+        $operand->setValue($token);
+        $this->operandStack[] = $operand;
+        $this->tokens[] = $operand;
+
+        return true;
+    }
+
+    /**
+     * Tokenize the lambda operator argument
+     * @return bool
+     */
+    public function tokenizeLambdaArgument(): bool
+    {
+        $token = $this->lexer->maybeLambdaArgument();
+
+        if (!$token) {
+            return false;
+        }
+
+        $lambdaArgument = rtrim($token, ':');
+
+        $operand = new Literal\LambdaArgument($this);
+        $operand->setValue($lambdaArgument);
+        $this->operandStack[] = $operand;
+        $this->tokens[] = $operand;
+
+        return true;
+    }
+
+    /**
+     * Tokenize a lambda property
+     * @return bool
+     */
+    public function tokenizeLambdaProperty(): bool
+    {
+        $declaredProperties = $this->entitySet->getType()->getDeclaredProperties();
+
+        $lambda = null;
+
+        foreach (array_reverse($this->tokens) as $token) {
+            if ($token instanceof Literal\LambdaArgument) {
+                $lambda = $token;
+                break;
+            }
+        }
+
+        if (!$lambda) {
+            return false;
+        }
+
+        $lambdaProperties = [];
+
+        foreach ($declaredProperties as $declaredProperty) {
+            $lambdaProperties[$lambda->getValue().'/'.$declaredProperty] = $declaredProperty;
+        }
+
+        $token = $this->lexer->maybeKeyword(...array_keys($lambdaProperties));
+
+        if (!$token) {
+            return false;
+        }
+
+        $operand = new LambdaProperty($this);
+        $operand->setValue($lambdaProperties[$token]);
+        $operand->setProperty($lambdaProperties[$token]);
+        $this->operandStack[] = $operand;
+        $this->tokens[] = $operand;
+
+        return true;
+    }
+
+    /**
+     * Tokenize a declared property
+     * @return bool
+     */
+    public function tokenizeDeclaredProperty(): bool
+    {
+        $properties = $this->entitySet->getType()->getDeclaredProperties()->keys();
+
+        $token = $this->lexer->maybeKeyword(...$properties);
+
+        if (!$token) {
+            return false;
+        }
+
+        $operand = new DeclaredProperty($this);
         $operand->setValue($token);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;

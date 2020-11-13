@@ -43,6 +43,7 @@ class Lexer
     public const DIGIT = '\d';
     public const BASE64 = '(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?';
     public const PARAMETER_ALIAS = '\@'.self::IDENTIFIER;
+    public const LAMBDA_ARGUMENT = self::IDENTIFIER.'\:';
 
     /**
      * The text passed to the Lexer
@@ -772,6 +773,15 @@ class Lexer
     public function qualifiedIdentifier(): string
     {
         return $this->expression(self::QUALIFIED_IDENTIFIER);
+    }
+
+    /**
+     * Maybe match a lambda argument
+     * @return string|null
+     */
+    public function maybeLambdaArgument(): ?string
+    {
+        return $this->maybeExpression(self::LAMBDA_ARGUMENT);
     }
 
     /**

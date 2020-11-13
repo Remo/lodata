@@ -9,7 +9,7 @@ use Flat3\Lodata\Expression\Event;
 use Flat3\Lodata\Expression\Event\ArgumentSeparator;
 use Flat3\Lodata\Expression\Event\EndFunction;
 use Flat3\Lodata\Expression\Event\EndGroup;
-use Flat3\Lodata\Expression\Event\Field;
+use Flat3\Lodata\Expression\Event\DeclaredPropertyEvent;
 use Flat3\Lodata\Expression\Event\Literal;
 use Flat3\Lodata\Expression\Event\Operator;
 use Flat3\Lodata\Expression\Event\StartGroup;
@@ -64,7 +64,7 @@ trait SQLFilter
 
                 return true;
 
-            case $event instanceof Field:
+            case $event instanceof DeclaredPropertyEvent:
                 /** @var EntityType $type */
                 $type = $this->getType();
 

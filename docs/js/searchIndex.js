@@ -2421,6 +2421,11 @@ Search.appendIndex(
             "summary": "Argument\u0020Separator",
             "url": "classes/Flat3-Lodata-Expression-Event-ArgumentSeparator.html"
         },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\DeclaredPropertyEvent",
+            "name": "DeclaredPropertyEvent",
+            "summary": "Declared\u0020Property\u0020Event",
+            "url": "classes/Flat3-Lodata-Expression-Event-DeclaredPropertyEvent.html"
+        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\EndFunction",
             "name": "EndFunction",
             "summary": "End\u0020Function",
@@ -2430,11 +2435,6 @@ Search.appendIndex(
             "name": "EndGroup",
             "summary": "End\u0020Group",
             "url": "classes/Flat3-Lodata-Expression-Event-EndGroup.html"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\Field",
-            "name": "Field",
-            "summary": "Field",
-            "url": "classes/Flat3-Lodata-Expression-Event-Field.html"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\Literal",
             "name": "Literal",
@@ -2696,6 +2696,11 @@ Search.appendIndex(
             "summary": "Match\u0020a\u0020qualified\u0020identifier",
             "url": "classes/Flat3-Lodata-Expression-Lexer.html#method_qualifiedIdentifier"
         },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Lexer\u003A\u003AmaybeLambdaArgument\u0028\u0029",
+            "name": "maybeLambdaArgument",
+            "summary": "Maybe\u0020match\u0020a\u0020lambda\u0020argument",
+            "url": "classes/Flat3-Lodata-Expression-Lexer.html#method_maybeLambdaArgument"
+        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Lexer\u003A\u003AmaybeMatchingParenthesis\u0028\u0029",
             "name": "maybeMatchingParenthesis",
             "summary": "Maybe\u0020match\u0020a\u0020string\u0020enclosed\u0020in\u0020matching\u0020parentheses",
@@ -2786,15 +2791,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Flat3-Lodata-Expression-Lexer.html#constant_PARAMETER_ALIAS"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Field",
-            "name": "Field",
-            "summary": "Field",
-            "url": "classes/Flat3-Lodata-Expression-Node-Field.html"
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Lexer\u003A\u003ALAMBDA_ARGUMENT",
+            "name": "LAMBDA_ARGUMENT",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Lexer.html#constant_LAMBDA_ARGUMENT"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Field\u003A\u003Acompute\u0028\u0029",
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\DeclaredProperty",
+            "name": "DeclaredProperty",
+            "summary": "Declared\u0020Property",
+            "url": "classes/Flat3-Lodata-Expression-Node-DeclaredProperty.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\DeclaredProperty\u003A\u003Acompute\u0028\u0029",
             "name": "compute",
             "summary": "Compute\u0020the\u0020value\u0020of\u0020this\u0020node",
-            "url": "classes/Flat3-Lodata-Expression-Node-Field.html#method_compute"
+            "url": "classes/Flat3-Lodata-Expression-Node-DeclaredProperty.html#method_compute"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Func\\Arithmetic\\Ceiling",
             "name": "Ceiling",
@@ -3281,6 +3291,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Flat3-Lodata-Expression-Node-Literal-Int32.html#method_getValue"
         },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaArgument",
+            "name": "LambdaArgument",
+            "summary": "Lambda\u0020Argument",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaProperty",
+            "name": "LambdaProperty",
+            "summary": "Lambda\u0020Property",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaProperty.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaProperty\u003A\u003AsetProperty\u0028\u0029",
+            "name": "setProperty",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaProperty.html#method_setProperty"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaProperty\u003A\u003A\u0024property",
+            "name": "property",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaProperty.html#property_property"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath",
+            "name": "NavigationPropertyPath",
+            "summary": "Navigation\u0020Property\u0020Path",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath\u003A\u003AsetNavigationProperty\u0028\u0029",
+            "name": "setNavigationProperty",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html#method_setNavigationProperty"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html#method_getValue"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath\u003A\u003A\u0024navigationProperty",
+            "name": "navigationProperty",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html#property_navigationProperty"
+        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\Null_",
             "name": "Null_",
             "summary": "Null",
@@ -3470,6 +3520,61 @@ Search.appendIndex(
             "name": "Comparison",
             "summary": "Comparison",
             "url": "classes/Flat3-Lodata-Expression-Node-Operator-Comparison.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\\All",
+            "name": "All",
+            "summary": "Class\u0020All",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda-All.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\\All\u003A\u003Asymbol",
+            "name": "symbol",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda-All.html#constant_symbol"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\\Any",
+            "name": "Any",
+            "summary": "Class\u0020Any",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda-Any.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\\Any\u003A\u003Asymbol",
+            "name": "symbol",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda-Any.html#constant_symbol"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda",
+            "name": "Lambda",
+            "summary": "Lambda",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AsetNavigationPath\u0028\u0029",
+            "name": "setNavigationPath",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationPath"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AsetLambdaArgument\u0028\u0029",
+            "name": "setLambdaArgument",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setLambdaArgument"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003Acompute\u0028\u0029",
+            "name": "compute",
+            "summary": "Compute\u0020the\u0020value\u0020of\u0020this\u0020operator",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_compute"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003Aunary",
+            "name": "unary",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#constant_unary"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003A\u0024navigationPath",
+            "name": "navigationPath",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_navigationPath"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003A\u0024lambdaArgument",
+            "name": "lambdaArgument",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_lambdaArgument"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Logical\\Equal",
             "name": "Equal",
@@ -3796,11 +3901,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Flat3-Lodata-Expression-Parser.html#method___construct"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AaddValidLiteral\u0028\u0029",
-            "name": "addValidLiteral",
-            "summary": "Set\u0020the\u0020list\u0020of\u0020valid\u0020field\u0020literals",
-            "url": "classes/Flat3-Lodata-Expression-Parser.html#method_addValidLiteral"
-        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AgenerateTree\u0028\u0029",
             "name": "generateTree",
             "summary": "Convert\u0020an\u0020expression\u0020to\u0020an\u0020abstract\u0020syntax\u0020tree.",
@@ -3901,10 +4001,25 @@ Search.appendIndex(
             "summary": "Tokenize\u0020a\u0020time\u0020of\u0020day",
             "url": "classes/Flat3-Lodata-Expression-Parser.html#method_tokenizeTimeOfDay"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AtokenizeKeyword\u0028\u0029",
-            "name": "tokenizeKeyword",
-            "summary": "Tokenize\u0020a\u0020registered\u0020literal\u0020keyword",
-            "url": "classes/Flat3-Lodata-Expression-Parser.html#method_tokenizeKeyword"
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AtokenizeNavigationPropertyPath\u0028\u0029",
+            "name": "tokenizeNavigationPropertyPath",
+            "summary": "Tokenize\u0020a\u0020navigation\u0020property\u0020path",
+            "url": "classes/Flat3-Lodata-Expression-Parser.html#method_tokenizeNavigationPropertyPath"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AtokenizeLambdaArgument\u0028\u0029",
+            "name": "tokenizeLambdaArgument",
+            "summary": "Tokenize\u0020the\u0020lambda\u0020operator\u0020argument",
+            "url": "classes/Flat3-Lodata-Expression-Parser.html#method_tokenizeLambdaArgument"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AtokenizeLambdaProperty\u0028\u0029",
+            "name": "tokenizeLambdaProperty",
+            "summary": "Tokenize\u0020a\u0020lambda\u0020property",
+            "url": "classes/Flat3-Lodata-Expression-Parser.html#method_tokenizeLambdaProperty"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AtokenizeDeclaredProperty\u0028\u0029",
+            "name": "tokenizeDeclaredProperty",
+            "summary": "Tokenize\u0020a\u0020declared\u0020property",
+            "url": "classes/Flat3-Lodata-Expression-Parser.html#method_tokenizeDeclaredProperty"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Parser\u003A\u003AtokenizeString\u0028\u0029",
             "name": "tokenizeString",
@@ -7345,6 +7460,11 @@ Search.appendIndex(
             "name": "Comparison",
             "summary": "",
             "url": "namespaces/flat3-lodata-expression-node-operator-comparison.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda",
+            "name": "Lambda",
+            "summary": "",
+            "url": "namespaces/flat3-lodata-expression-node-operator-lambda.html"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Logical",
             "name": "Logical",

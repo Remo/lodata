@@ -2,7 +2,6 @@
 
 namespace Flat3\Lodata\Drivers\SQL;
 
-use Flat3\Lodata\DeclaredProperty;
 use Flat3\Lodata\Exception\Protocol\InternalServerErrorException;
 use Flat3\Lodata\Interfaces\EntitySet\FilterInterface;
 use Flat3\Lodata\Interfaces\EntitySet\SearchInterface;

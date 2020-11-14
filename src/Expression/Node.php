@@ -96,9 +96,9 @@ abstract class Node
 
     /**
      * Set the value of this node
-     * @param  string  $value
+     * @param  mixed  $value
      */
-    public function setValue(string $value): void
+    public function setValue($value): void
     {
         $this->value = $value;
     }

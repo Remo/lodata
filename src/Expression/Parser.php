@@ -5,14 +5,13 @@ namespace Flat3\Lodata\Expression;
 use Flat3\Lodata\EntitySet;
 use Flat3\Lodata\Exception\Internal\ParserException;
 use Flat3\Lodata\Exception\Protocol\BadRequestException;
-use Flat3\Lodata\Expression\Node\DeclaredProperty;
 use Flat3\Lodata\Expression\Node\Func;
 use Flat3\Lodata\Expression\Node\Group;
-use Flat3\Lodata\Expression\Node\Lambda\Property;
 use Flat3\Lodata\Expression\Node\LeftParen;
 use Flat3\Lodata\Expression\Node\Literal;
 use Flat3\Lodata\Expression\Node\Operator\Lambda;
 use Flat3\Lodata\Expression\Node\Operator\Logical;
+use Flat3\Lodata\Expression\Node\Property;
 use Flat3\Lodata\Expression\Node\RightParen;
 
 /**
@@ -126,16 +125,16 @@ abstract class Parser
             $lambdaArgument = array_pop($this->operandStack);
             $navigationProperty = array_pop($this->operandStack);
 
-            if (!$navigationProperty instanceof Node\NavigationPropertyPath) {
+            if (!$navigationProperty instanceof Node\Property\Navigation) {
                 throw new ParserException('Lambda function was not prepended by a navigation property path');
             }
 
-            if (!$lambdaArgument instanceof Node\Lambda\Argument) {
+            if (!$lambdaArgument instanceof Literal\LambdaArgument) {
                 throw new ParserException('Lambda function had no valid argument');
             }
 
             $operator->setLambdaArgument($lambdaArgument);
-            $operator->setNavigationPath($navigationProperty);
+            $operator->setNavigationProperty($navigationProperty);
 
             $this->operandStack[] = $operator;
 
@@ -548,9 +547,8 @@ abstract class Parser
 
         $this->lexer->char('/');
 
-        $operand = new Node\NavigationPropertyPath($this);
-        $operand->setNavigationProperty($navigationProperties[$token]);
-        $operand->setValue($token);
+        $operand = new Node\Property\Navigation($this);
+        $operand->setValue($navigationProperties[$token]);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;
 
@@ -571,7 +569,7 @@ abstract class Parser
 
         $lambdaArgument = rtrim($token, ':');
 
-        $operand = new Node\Lambda\Argument($this);
+        $operand = new Node\Literal\LambdaArgument($this);
         $operand->setValue($lambdaArgument);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;
@@ -590,7 +588,7 @@ abstract class Parser
         $argument = null;
 
         foreach (array_reverse($this->tokens) as $token) {
-            if ($token instanceof Node\Lambda\Argument) {
+            if ($token instanceof Literal\LambdaArgument) {
                 $argument = $token;
                 break;
             }
@@ -612,9 +610,8 @@ abstract class Parser
             return false;
         }
 
-        $operand = new Property($this);
+        $operand = new Node\Property\Lambda($this);
         $operand->setValue($lambdaProperties[$token]);
-        $operand->setProperty($lambdaProperties[$token]);
         $operand->setArgument($argument);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;
@@ -636,7 +633,7 @@ abstract class Parser
             return false;
         }
 
-        $operand = new DeclaredProperty($this);
+        $operand = new Property($this);
         $operand->setValue($token);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;

@@ -7,11 +7,11 @@ use Flat3\Lodata\EntityType;
 use Flat3\Lodata\Exception\Protocol\BadRequestException;
 use Flat3\Lodata\Expression\Event;
 use Flat3\Lodata\Expression\Event\ArgumentSeparator;
-use Flat3\Lodata\Expression\Event\DeclaredPropertyEvent;
 use Flat3\Lodata\Expression\Event\EndFunction;
 use Flat3\Lodata\Expression\Event\EndGroup;
 use Flat3\Lodata\Expression\Event\Literal;
 use Flat3\Lodata\Expression\Event\Operator;
+use Flat3\Lodata\Expression\Event\Property;
 use Flat3\Lodata\Expression\Event\StartGroup;
 use Flat3\Lodata\Expression\Node\Literal\Boolean;
 use Flat3\Lodata\Expression\Node\Literal\Date;
@@ -64,7 +64,7 @@ trait SQLFilter
 
                 return true;
 
-            case $event instanceof DeclaredPropertyEvent:
+            case $event instanceof Property:
                 /** @var EntityType $type */
                 $type = $this->getType();
 

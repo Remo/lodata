@@ -4,9 +4,10 @@ namespace Flat3\Lodata\Expression\Node\Operator;
 
 use Flat3\Lodata\Exception\Internal\NodeHandledException;
 use Flat3\Lodata\Expression\Event\EndGroup;
+use Flat3\Lodata\Expression\Event\Operator as OperatorEvent;
 use Flat3\Lodata\Expression\Event\StartGroup;
-use Flat3\Lodata\Expression\Node\Lambda\Argument;
-use Flat3\Lodata\Expression\Node\NavigationPropertyPath;
+use Flat3\Lodata\Expression\Node\Literal\LambdaArgument;
+use Flat3\Lodata\Expression\Node\Property\Navigation;
 use Flat3\Lodata\Expression\Operator;
 
 /**
@@ -17,28 +18,54 @@ abstract class Lambda extends Operator
 {
     const unary = true;
 
-    protected $navigationPath;
+    /**
+     * @var Navigation $navigationProperty
+     * @internal
+     */
+    protected $navigationProperty;
 
+    /**
+     * @var LambdaArgument $lambdaArgument
+     * @internal
+     */
     protected $lambdaArgument;
 
-    public function getNavigationPath(): ?NavigationPropertyPath
+    /**
+     * Get the navigation property
+     * @return Navigation
+     */
+    public function getNavigationProperty(): Navigation
     {
-        return $this->navigationPath;
+        return $this->navigationProperty;
     }
 
-    public function setNavigationPath(NavigationPropertyPath $path): self
+    /**
+     * Set the navigation property
+     * @param  Navigation  $property
+     * @return $this
+     */
+    public function setNavigationProperty(Navigation $property): self
     {
-        $this->navigationPath = $path;
+        $this->navigationProperty = $property;
 
         return $this;
     }
 
-    public function getLambdaArgument(): ?Argument
+    /**
+     * Get the lambda argument
+     * @return LambdaArgument
+     */
+    public function getLambdaArgument(): LambdaArgument
     {
         return $this->lambdaArgument;
     }
 
-    public function setLambdaArgument(Argument $argument): self
+    /**
+     * Set the lambda argument
+     * @param  LambdaArgument  $argument
+     * @return $this
+     */
+    public function setLambdaArgument(LambdaArgument $argument): self
     {
         $this->lambdaArgument = $argument;
 
@@ -48,7 +75,7 @@ abstract class Lambda extends Operator
     public function compute(): void
     {
         try {
-            $this->expressionEvent(new \Flat3\Lodata\Expression\Event\Operator($this));
+            $this->expressionEvent(new OperatorEvent($this));
             $this->expressionEvent(new StartGroup());
             $this->computeCommaSeparatedArguments();
             $this->expressionEvent(new EndGroup());

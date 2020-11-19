@@ -1,1 +1,1 @@
-( ( 54 gt 12 ) and Items/any(d: ( ( ( d/title gt 100 ) and ( d/title lt 100 ) ) or ( id eq 4 ) ) ) )
+( ( 54 gt 12 ) and airports/any(d: ( ( ( d/origin gt 100 ) and ( d/origin lt 100 ) ) or ( id eq 4 ) ) ) )

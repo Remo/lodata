@@ -583,8 +583,6 @@ abstract class Parser
      */
     public function tokenizeLambdaProperty(): bool
     {
-        $declaredProperties = $this->entitySet->getType()->getDeclaredProperties();
-
         $argument = null;
 
         foreach (array_reverse($this->tokens) as $token) {
@@ -598,20 +596,16 @@ abstract class Parser
             return false;
         }
 
-        $lambdaProperties = [];
+        $preamble = $this->lexer->maybeKeyword($argument->getValue().'/');
 
-        foreach ($declaredProperties as $declaredProperty) {
-            $lambdaProperties[$argument->getValue().'/'.$declaredProperty] = $declaredProperty;
-        }
-
-        $token = $this->lexer->maybeKeyword(...array_keys($lambdaProperties));
-
-        if (!$token) {
+        if (!$preamble) {
             return false;
         }
 
+        $token = $this->lexer->identifier();
+
         $operand = new Node\Property\Lambda($this);
-        $operand->setValue($lambdaProperties[$token]);
+        $operand->setValue($token);
         $operand->setArgument($argument);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;

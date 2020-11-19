@@ -440,12 +440,12 @@ class FilterTest extends TestCase
 
     public function test_53()
     {
-        $this->assertResult("airports/any(d:d/origin gt 100)");
+        $this->assertResult("passengers/any(p:p/name gt 'a')");
     }
 
     public function test_54()
     {
-        $this->assertResult("54 gt 12 and airports/any(d:d/origin gt 100 and d/origin lt 100 or id eq 4)");
+        $this->assertResult("54 gt 12 and passengers/any(p:p/name gt 'b' and p/name lt 'b' or id eq 4)");
     }
 
     public function assertLoopbackSet($input)

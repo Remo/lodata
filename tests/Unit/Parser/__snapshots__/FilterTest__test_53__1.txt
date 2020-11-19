@@ -1,1 +1,1 @@
-airports/any(d: ( d/origin gt 100 ) )
+passengers/any(p: ( p/name gt 'a' ) )

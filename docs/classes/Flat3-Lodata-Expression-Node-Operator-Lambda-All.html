@@ -159,21 +159,7 @@
 </dt>
 <dd></dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_lambdaArgument">$lambdaArgument</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_navigationPath">$navigationPath</a>
-    <span>
-                &nbsp;: mixed            </span>
-</dt>
-<dd></dd>
-
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+                    <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Flat3-Lodata-Expression-Node.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
@@ -209,11 +195,25 @@
 <dd>Get the arguments list for this operator</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_getLambdaArgument">getLambdaArgument()</a>
+    <span>
+                        &nbsp;: <a href="classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\LambdaArgument">LambdaArgument</abbr></a>    </span>
+</dt>
+<dd>Get the lambda argument</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Flat3-Lodata-Expression-Node.html#method_getLeftNode">getLeftNode()</a>
     <span>
                         &nbsp;: self    </span>
 </dt>
 <dd>Get the left node</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_getNavigationProperty">getNavigationProperty()</a>
+    <span>
+                        &nbsp;: <a href="classes/Flat3-Lodata-Expression-Node-Property-Navigation.html"><abbr title="\Flat3\Lodata\Expression\Node\Property\Navigation">Navigation</abbr></a>    </span>
+</dt>
+<dd>Get the navigation property</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Flat3-Lodata-Expression-Operator.html#method_getPrecedence">getPrecedence()</a>
@@ -260,9 +260,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setLambdaArgument">setLambdaArgument()</a>
     <span>
-                        &nbsp;: self    </span>
+                        &nbsp;: $this    </span>
 </dt>
-<dd></dd>
+<dd>Set the lambda argument</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Flat3-Lodata-Expression-Node.html#method_setLeftNode">setLeftNode()</a>
@@ -272,11 +272,11 @@
 <dd>Set the left node</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationPath">setNavigationPath()</a>
+    <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationProperty">setNavigationProperty()</a>
     <span>
-                        &nbsp;: self    </span>
+                        &nbsp;: $this    </span>
 </dt>
-<dd></dd>
+<dd>Set the navigation property</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Flat3-Lodata-Expression-Node.html#method_setRightNode">setRightNode()</a>
@@ -444,72 +444,6 @@
             </section>
 
         
-    <section class="phpdocumentor-properties">
-        <h3 class="phpdocumentor-elements__header" id="properties">
-            Properties
-            <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda-All.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
-        </h3>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_lambdaArgument">
-        $lambdaArgument
-        <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_lambdaArgument" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Expression/Node/Operator/Lambda.php"><a href="files/src-expression-node-operator-lambda.html"><abbr title="src/Expression/Node/Operator/Lambda.php">Lambda.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$lambdaArgument</span>
-    </code>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_navigationPath">
-        $navigationPath
-        <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_navigationPath" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Expression/Node/Operator/Lambda.php"><a href="files/src-expression-node-operator-lambda.html"><abbr title="src/Expression/Node/Operator/Lambda.php">Lambda.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">20</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$navigationPath</span>
-    </code>
-
-    
-    
-
-</article>
-            </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
@@ -711,6 +645,40 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getLambdaArgument">
+        getLambdaArgument()
+        <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_getLambdaArgument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Expression/Node/Operator/Lambda.php"><a href="files/src-expression-node-operator-lambda.html"><abbr title="src/Expression/Node/Operator/Lambda.php">Lambda.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Get the lambda argument</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getLambdaArgument</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\LambdaArgument">LambdaArgument</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\LambdaArgument">LambdaArgument</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getLeftNode">
         getLeftNode()
         <a href="classes/Flat3-Lodata-Expression-Node.html#method_getLeftNode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -734,6 +702,40 @@
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getNavigationProperty">
+        getNavigationProperty()
+        <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_getNavigationProperty" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Expression/Node/Operator/Lambda.php"><a href="files/src-expression-node-operator-lambda.html"><abbr title="src/Expression/Node/Operator/Lambda.php">Lambda.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Get the navigation property</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getNavigationProperty</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Flat3-Lodata-Expression-Node-Property-Navigation.html"><abbr title="\Flat3\Lodata\Expression\Node\Property\Navigation">Navigation</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Flat3-Lodata-Expression-Node-Property-Navigation.html"><abbr title="\Flat3\Lodata\Expression\Node\Property\Navigation">Navigation</abbr></a></span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -956,15 +958,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Expression/Node/Operator/Lambda.php"><a href="files/src-expression-node-operator-lambda.html"><abbr title="src/Expression/Node/Operator/Lambda.php">Lambda.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Set the lambda argument</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setLambdaArgument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\LambdaArgument">LambdaArgument</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$argument</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+                <span class="phpdocumentor-signature__name">setLambdaArgument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\LambdaArgument">LambdaArgument</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$argument</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -972,14 +976,15 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\LambdaArgument">LambdaArgument</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
+    <span class="phpdocumentor-signature__response_type">$this</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -1036,37 +1041,40 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setNavigationPath">
-        setNavigationPath()
-        <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationPath" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setNavigationProperty">
+        setNavigationProperty()
+        <a href="classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationProperty" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Expression/Node/Operator/Lambda.php"><a href="files/src-expression-node-operator-lambda.html"><abbr title="src/Expression/Node/Operator/Lambda.php">Lambda.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Set the navigation property</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setNavigationPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\NavigationPropertyPath">NavigationPropertyPath</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+                <span class="phpdocumentor-signature__name">setNavigationProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Property-Navigation.html"><abbr title="\Flat3\Lodata\Expression\Node\Property\Navigation">Navigation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$path</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html"><abbr title="\Flat3\Lodata\Expression\Node\Literal\NavigationPropertyPath">NavigationPropertyPath</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$property</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Flat3-Lodata-Expression-Node-Property-Navigation.html"><abbr title="\Flat3\Lodata\Expression\Node\Property\Navigation">Navigation</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
+    <span class="phpdocumentor-signature__response_type">$this</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -1137,7 +1145,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">setValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1145,7 +1153,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>

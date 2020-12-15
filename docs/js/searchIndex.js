@@ -2421,11 +2421,6 @@ Search.appendIndex(
             "summary": "Argument\u0020Separator",
             "url": "classes/Flat3-Lodata-Expression-Event-ArgumentSeparator.html"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\DeclaredPropertyEvent",
-            "name": "DeclaredPropertyEvent",
-            "summary": "Declared\u0020Property\u0020Event",
-            "url": "classes/Flat3-Lodata-Expression-Event-DeclaredPropertyEvent.html"
-        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\EndFunction",
             "name": "EndFunction",
             "summary": "End\u0020Function",
@@ -2445,6 +2440,11 @@ Search.appendIndex(
             "name": "Operator",
             "summary": "Operator",
             "url": "classes/Flat3-Lodata-Expression-Event-Operator.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\Property",
+            "name": "Property",
+            "summary": "Property",
+            "url": "classes/Flat3-Lodata-Expression-Event-Property.html"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Event\\StartFunction",
             "name": "StartFunction",
@@ -2795,16 +2795,6 @@ Search.appendIndex(
             "name": "LAMBDA_ARGUMENT",
             "summary": "",
             "url": "classes/Flat3-Lodata-Expression-Lexer.html#constant_LAMBDA_ARGUMENT"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\DeclaredProperty",
-            "name": "DeclaredProperty",
-            "summary": "Declared\u0020Property",
-            "url": "classes/Flat3-Lodata-Expression-Node-DeclaredProperty.html"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\DeclaredProperty\u003A\u003Acompute\u0028\u0029",
-            "name": "compute",
-            "summary": "Compute\u0020the\u0020value\u0020of\u0020this\u0020node",
-            "url": "classes/Flat3-Lodata-Expression-Node-DeclaredProperty.html#method_compute"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Func\\Arithmetic\\Ceiling",
             "name": "Ceiling",
@@ -3296,41 +3286,6 @@ Search.appendIndex(
             "summary": "Lambda\u0020Argument",
             "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaArgument.html"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaProperty",
-            "name": "LambdaProperty",
-            "summary": "Lambda\u0020Property",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaProperty.html"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaProperty\u003A\u003AsetProperty\u0028\u0029",
-            "name": "setProperty",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaProperty.html#method_setProperty"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\LambdaProperty\u003A\u003A\u0024property",
-            "name": "property",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-LambdaProperty.html#property_property"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath",
-            "name": "NavigationPropertyPath",
-            "summary": "Navigation\u0020Property\u0020Path",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath\u003A\u003AsetNavigationProperty\u0028\u0029",
-            "name": "setNavigationProperty",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html#method_setNavigationProperty"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath\u003A\u003AgetValue\u0028\u0029",
-            "name": "getValue",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html#method_getValue"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\NavigationPropertyPath\u003A\u003A\u0024navigationProperty",
-            "name": "navigationProperty",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Literal-NavigationPropertyPath.html#property_navigationProperty"
-        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal\\Null_",
             "name": "Null_",
             "summary": "Null",
@@ -3546,14 +3501,24 @@ Search.appendIndex(
             "summary": "Lambda",
             "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AsetNavigationPath\u0028\u0029",
-            "name": "setNavigationPath",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationPath"
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AgetNavigationProperty\u0028\u0029",
+            "name": "getNavigationProperty",
+            "summary": "Get\u0020the\u0020navigation\u0020property",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_getNavigationProperty"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AsetNavigationProperty\u0028\u0029",
+            "name": "setNavigationProperty",
+            "summary": "Set\u0020the\u0020navigation\u0020property",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setNavigationProperty"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AgetLambdaArgument\u0028\u0029",
+            "name": "getLambdaArgument",
+            "summary": "Get\u0020the\u0020lambda\u0020argument",
+            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_getLambdaArgument"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003AsetLambdaArgument\u0028\u0029",
             "name": "setLambdaArgument",
-            "summary": "",
+            "summary": "Set\u0020the\u0020lambda\u0020argument",
             "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#method_setLambdaArgument"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003Acompute\u0028\u0029",
@@ -3565,16 +3530,6 @@ Search.appendIndex(
             "name": "unary",
             "summary": "",
             "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#constant_unary"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003A\u0024navigationPath",
-            "name": "navigationPath",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_navigationPath"
-        },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Lambda\u003A\u003A\u0024lambdaArgument",
-            "name": "lambdaArgument",
-            "summary": "",
-            "url": "classes/Flat3-Lodata-Expression-Node-Operator-Lambda.html#property_lambdaArgument"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Operator\\Logical\\Equal",
             "name": "Equal",
@@ -3695,6 +3650,41 @@ Search.appendIndex(
             "name": "Logical",
             "summary": "Logical",
             "url": "classes/Flat3-Lodata-Expression-Node-Operator-Logical.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property\\Lambda",
+            "name": "Lambda",
+            "summary": "Lambda",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property-Lambda.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property\\Lambda\u003A\u003AsetArgument\u0028\u0029",
+            "name": "setArgument",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property-Lambda.html#method_setArgument"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property\\Lambda\u003A\u003AgetArgument\u0028\u0029",
+            "name": "getArgument",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property-Lambda.html#method_getArgument"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property\\Lambda\u003A\u003A\u0024argument",
+            "name": "argument",
+            "summary": "",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property-Lambda.html#property_argument"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property\\Navigation",
+            "name": "Navigation",
+            "summary": "Navigation",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property-Navigation.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property",
+            "name": "Property",
+            "summary": "Property",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property\u003A\u003Acompute\u0028\u0029",
+            "name": "compute",
+            "summary": "Compute\u0020the\u0020value\u0020of\u0020this\u0020node",
+            "url": "classes/Flat3-Lodata-Expression-Node-Property.html#method_compute"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\RightParen",
             "name": "RightParen",
@@ -5046,10 +5036,20 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020navigation\u0020property",
             "url": "classes/Flat3-Lodata-NavigationBinding.html#method_getPath"
         },                {
+            "fqsen": "\\Flat3\\Lodata\\NavigationBinding\u003A\u003AsetPath\u0028\u0029",
+            "name": "setPath",
+            "summary": "Update\u0020the\u0020path\u0020property\u0020of\u0020this\u0020navigation\u0020binding",
+            "url": "classes/Flat3-Lodata-NavigationBinding.html#method_setPath"
+        },                {
             "fqsen": "\\Flat3\\Lodata\\NavigationBinding\u003A\u003AgetTarget\u0028\u0029",
             "name": "getTarget",
             "summary": "Get\u0020the\u0020target\u0020entity\u0020set",
             "url": "classes/Flat3-Lodata-NavigationBinding.html#method_getTarget"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\NavigationBinding\u003A\u003AsetTarget\u0028\u0029",
+            "name": "setTarget",
+            "summary": "Re\u002Dtarget\u0020this\u0020navigation\u0020binding\u0020to\u0020a\u0020new\u0020entity\u0020set",
+            "url": "classes/Flat3-Lodata-NavigationBinding.html#method_setTarget"
         },                {
             "fqsen": "\\Flat3\\Lodata\\NavigationProperty",
             "name": "NavigationProperty",
@@ -7411,11 +7411,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/flat3-lodata-expression.html"
         },                {
-            "fqsen": "\\Flat3\\Lodata\\Expression\\Node",
-            "name": "Node",
-            "summary": "",
-            "url": "namespaces/flat3-lodata-expression-node.html"
-        },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Func\\Arithmetic",
             "name": "Arithmetic",
             "summary": "",
@@ -7440,6 +7435,11 @@ Search.appendIndex(
             "name": "StringCollection",
             "summary": "",
             "url": "namespaces/flat3-lodata-expression-node-func-stringcollection.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node",
+            "name": "Node",
+            "summary": "",
+            "url": "namespaces/flat3-lodata-expression-node.html"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Literal",
             "name": "Literal",
@@ -7470,6 +7470,11 @@ Search.appendIndex(
             "name": "Logical",
             "summary": "",
             "url": "namespaces/flat3-lodata-expression-node-operator-logical.html"
+        },                {
+            "fqsen": "\\Flat3\\Lodata\\Expression\\Node\\Property",
+            "name": "Property",
+            "summary": "",
+            "url": "namespaces/flat3-lodata-expression-node-property.html"
         },                {
             "fqsen": "\\Flat3\\Lodata\\Expression\\Parser",
             "name": "Parser",

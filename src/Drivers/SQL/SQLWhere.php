@@ -42,7 +42,7 @@ trait SQLWhere
             if ($filter->hasValue()) {
                 $this->whereMaybeAnd();
 
-                $this->applyFilterQueryOption($validLiterals);
+                $this->applyFilterQueryOption();
             }
         }
 

@@ -666,7 +666,7 @@ abstract class EntitySet implements EntityTypeInterface, ReferenceInterface, Ide
      * Apply the filter system query option
      * @param  array  $validLiterals  List of valid literals for this entity set
      */
-    public function applyFilterQueryOption(array $validLiterals = []): void
+    public function applyFilterQueryOption(): void
     {
         $filter = $this->getFilter();
 
@@ -675,10 +675,6 @@ abstract class EntitySet implements EntityTypeInterface, ReferenceInterface, Ide
         }
 
         $parser = new FilterParser($this, $this->getTransaction());
-
-        foreach ($validLiterals as $validLiteral) {
-            $parser->addValidLiteral($validLiteral);
-        }
 
         $tree = $parser->generateTree($filter->getValue());
         $tree->compute();

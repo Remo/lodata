@@ -664,7 +664,6 @@ abstract class EntitySet implements EntityTypeInterface, ReferenceInterface, Ide
 
     /**
      * Apply the filter system query option
-     * @param  array  $validLiterals  List of valid literals for this entity set
      */
     public function applyFilterQueryOption(): void
     {

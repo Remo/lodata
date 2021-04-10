@@ -77,7 +77,9 @@ abstract class Lambda extends Operator
         try {
             $this->expressionEvent(new OperatorEvent($this));
             $this->expressionEvent(new StartGroup());
-            $this->computeCommaSeparatedArguments();
+            $arguments = $this->getArguments();
+            $arg = array_shift($arguments);
+            $arg->compute();
             $this->expressionEvent(new EndGroup());
         } catch (NodeHandledException $e) {
             return;

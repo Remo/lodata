@@ -6,7 +6,7 @@ use Flat3\Lodata\Exception\Internal\NodeHandledException;
 use Flat3\Lodata\Expression\Event\EndGroup;
 use Flat3\Lodata\Expression\Event\Operator as OperatorEvent;
 use Flat3\Lodata\Expression\Event\StartGroup;
-use Flat3\Lodata\Expression\Node\Literal\LambdaArgument;
+use Flat3\Lodata\Expression\Node\Literal\LambdaVariable;
 use Flat3\Lodata\Expression\Node\Property\Navigation;
 use Flat3\Lodata\Expression\Operator;
 
@@ -25,10 +25,10 @@ abstract class Lambda extends Operator
     protected $navigationProperty;
 
     /**
-     * @var LambdaArgument $lambdaArgument
+     * @var LambdaVariable $lambdaVariable
      * @internal
      */
-    protected $lambdaArgument;
+    protected $lambdaVariable;
 
     /**
      * Get the navigation property
@@ -53,21 +53,21 @@ abstract class Lambda extends Operator
 
     /**
      * Get the lambda argument
-     * @return LambdaArgument
+     * @return LambdaVariable
      */
-    public function getLambdaArgument(): LambdaArgument
+    public function getLambdaVariable(): LambdaVariable
     {
-        return $this->lambdaArgument;
+        return $this->lambdaVariable;
     }
 
     /**
      * Set the lambda argument
-     * @param  LambdaArgument  $argument
+     * @param  LambdaVariable  $argument
      * @return $this
      */
-    public function setLambdaArgument(LambdaArgument $argument): self
+    public function setLambdaVariable(LambdaVariable $argument): self
     {
-        $this->lambdaArgument = $argument;
+        $this->lambdaVariable = $argument;
 
         return $this;
     }

@@ -145,7 +145,7 @@ class Filter extends Parser
             $this->tokenizeRightParen() ||
             $this->tokenizeComma() ||
             $this->tokenizeParameterAlias() ||
-            $this->tokenizeLambdaArgument() ||
+            $this->tokenizeLambdaVariable() ||
             $this->tokenizeLambdaProperty() ||
             $this->tokenizeNavigationPropertyPath() ||
             $this->tokenizeDeclaredProperty() ||

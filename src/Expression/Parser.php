@@ -122,18 +122,18 @@ abstract class Parser
         }
 
         if ($operator instanceof Lambda) {
-            $lambdaArgument = array_pop($this->operandStack);
+            $lambdaVariable = array_pop($this->operandStack);
             $navigationProperty = array_pop($this->operandStack);
 
             if (!$navigationProperty instanceof Node\Property\Navigation) {
                 throw new ParserException('Lambda function was not prepended by a navigation property path');
             }
 
-            if (!$lambdaArgument instanceof Literal\LambdaArgument) {
+            if (!$lambdaVariable instanceof Literal\LambdaVariable) {
                 throw new ParserException('Lambda function had no valid argument');
             }
 
-            $operator->setLambdaArgument($lambdaArgument);
+            $operator->setLambdaVariable($lambdaVariable);
             $operator->setNavigationProperty($navigationProperty);
 
             $this->operandStack[] = $operator;
@@ -559,18 +559,18 @@ abstract class Parser
      * Tokenize the lambda operator argument
      * @return bool
      */
-    public function tokenizeLambdaArgument(): bool
+    public function tokenizeLambdaVariable(): bool
     {
-        $token = $this->lexer->maybeLambdaArgument();
+        $token = $this->lexer->maybeLambdaVariable();
 
         if (!$token) {
             return false;
         }
 
-        $lambdaArgument = rtrim($token, ':');
+        $lambdaVariable = rtrim($token, ':');
 
-        $operand = new Node\Literal\LambdaArgument($this);
-        $operand->setValue($lambdaArgument);
+        $operand = new Node\Literal\LambdaVariable($this);
+        $operand->setValue($lambdaVariable);
         $this->operandStack[] = $operand;
         $this->tokens[] = $operand;
 
@@ -586,7 +586,7 @@ abstract class Parser
         $argument = null;
 
         foreach (array_reverse($this->tokens) as $token) {
-            if ($token instanceof Literal\LambdaArgument) {
+            if ($token instanceof Literal\LambdaVariable) {
                 $argument = $token;
                 break;
             }

@@ -157,17 +157,17 @@ class LoopbackEntitySet extends EntitySet implements SearchInterface, FilterInte
 
                 switch (true) {
                     case $operator instanceof Lambda:
-                        list ($lambdaArgument) = $operator->getArguments();
+                        list ($lambdaExpression) = $operator->getArguments();
 
                         $this->addFilter(
                             sprintf(
                                 '%s/%s(%s:',
                                 $operator->getNavigationProperty()->getValue(),
                                 $operator::symbol,
-                                $operator->getLambdaArgument()
+                                $operator->getLambdaVariable()
                             )
                         );
-                        $lambdaArgument->compute();
+                        $lambdaExpression->compute();
                         $this->addFilter(')');
 
                         throw new NodeHandledException();
